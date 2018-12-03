@@ -1,0 +1,23 @@
+{
+ "align_labels_right": 0,
+ "creation": "2018-12-04 00:46:55.302361",
+ "custom_format": 1,
+ "default_print_language": "en",
+ "disabled": 0,
+ "doc_type": "Student Transfer Certificate",
+ "docstatus": 0,
+ "doctype": "Print Format",
+ "font": "Default",
+ "html": "<div >\n  {% if letter_head and not no_letterhead -%}\n  <div class=\"letter-head\">{{ letter_head }}</div>\n  <hr>\n  {%- endif %}\n\n  <div align=\"justify\">\n    {{ doc.print_preview }}\n  </div>\n\n</div>",
+ "idx": 0,
+ "line_breaks": 0,
+ "modified": "2018-12-04 00:50:52.542290",
+ "modified_by": "Administrator",
+ "module": "School Plus",
+ "name": "TC Print Format",
+ "owner": "Administrator",
+ "print_format_builder": 0,
+ "print_format_type": "Server",
+ "show_section_headings": 0,
+ "standard": "Yes"
+}
