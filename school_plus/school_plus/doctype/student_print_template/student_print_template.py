@@ -11,7 +11,6 @@ class StudentPrintTemplate(Document):
 
 @frappe.whitelist()
 def render_student_doc_template(template_name, doc):
-	print ("\n\n\n\n##########\n\n\n")
 	if isinstance(doc, str):
 		doc = json.loads(doc)
 	else:

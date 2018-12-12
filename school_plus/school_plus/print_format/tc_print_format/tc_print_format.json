@@ -11,7 +11,7 @@
  "html": "<div >\n  {% if letter_head and not no_letterhead -%}\n  <div class=\"letter-head\">{{ letter_head }}</div>\n  <hr>\n  {%- endif %}\n\n  <div align=\"justify\">\n    {{ doc.print_preview }}\n  </div>\n\n</div>",
  "idx": 0,
  "line_breaks": 0,
- "modified": "2018-12-04 00:50:52.542290",
+ "modified": "2018-12-13 01:41:52.180275",
  "modified_by": "Administrator",
  "module": "School Plus",
  "name": "TC Print Format",
