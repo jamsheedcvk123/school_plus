@@ -6,46 +6,48 @@ frappe.ui.form.on('Student Transfer Certificate', {
 		get_print_preview(frm);
 	},
 	student: function(frm) {
-		frappe.call({
-			method: "school_plus.school_plus.utils.get_student_details",
-			args: {
-				student: frm.doc.student
-			},
-			callback: function (data) {
-				if(data.message){
-					if(data.message.student){
-						var student = data.message.student;
-						if(student.guardians){
-							student.guardians.forEach(function(guardian) {
-								if(guardian.relation == "Father"){
-									frm.set_value("father_guardian", guardian.guardian_name);
-									frm.set_value("guardian_relation", "Father");
-								}
-								else if(guardian.relation == "Mother"){
-									frm.set_value("mother", guardian.guardian_name);
-								}
-							});
+		if(frm.doc.student){
+			frappe.call({
+				method: "school_plus.school_plus.utils.get_student_details",
+				args: {
+					student: frm.doc.student
+				},
+				callback: function (data) {
+					if(data.message){
+						if(data.message.student){
+							var student = data.message.student;
+							if(student.guardians){
+								student.guardians.forEach(function(guardian) {
+									if(guardian.relation == "Father"){
+										frm.set_value("father_guardian", guardian.guardian_name);
+										frm.set_value("guardian_relation", "Father");
+									}
+									else if(guardian.relation == "Mother"){
+										frm.set_value("mother", guardian.guardian_name);
+									}
+								});
+							}
+							frm.set_value("first_name", student.first_name);
+							frm.set_value("middle_name", student.middle_name);
+							frm.set_value("last_name", student.last_name);
+							frm.set_value("joining_date", student.joining_date);
+							frm.set_value("date_of_birth", student.date_of_birth);
+							frm.set_value("blood_group", student.blood_group);
+							frm.set_value("gender", student.gender);
+							frm.set_value("nationality", student.nationality);
 						}
-						frm.set_value("first_name", student.first_name);
-						frm.set_value("middle_name", student.middle_name);
-						frm.set_value("last_name", student.last_name);
-						frm.set_value("joining_date", student.joining_date);
-						frm.set_value("date_of_birth", student.date_of_birth);
-						frm.set_value("blood_group", student.blood_group);
-						frm.set_value("gender", student.gender);
-						frm.set_value("nationality", student.nationality);
-					}
-					if(data.message.first_enrollment && data.message.first_enrollment.length > 0){
-						frm.set_value("student_category", data.message.first_enrollment[0].student_category);
-						frm.set_value("joining_program", data.message.first_enrollment[0].program);
-						frm.set_value("joining_date", data.message.first_enrollment[0].enrollment_date);
-					}
-					if(data.message.last_enrollment && data.message.last_enrollment.length > 0){
-						frm.set_value("leaving_program", data.message.last_enrollment[0].program);
+						if(data.message.first_enrollment && data.message.first_enrollment.length > 0){
+							frm.set_value("student_category", data.message.first_enrollment[0].student_category);
+							frm.set_value("joining_program", data.message.first_enrollment[0].program);
+							frm.set_value("joining_date", data.message.first_enrollment[0].enrollment_date);
+						}
+						if(data.message.last_enrollment && data.message.last_enrollment.length > 0){
+							frm.set_value("leaving_program", data.message.last_enrollment[0].program);
+						}
 					}
 				}
-			}
-		});
+			});
+		}
 	},
 	date_of_birth:function(frm) {
 		if(frm.doc.date_of_birth){
