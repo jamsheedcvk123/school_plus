@@ -10,7 +10,7 @@
  "custom": 0,
  "docstatus": 0,
  "doctype": "DocType",
- "document_type": "Document",
+ "document_type": "",
  "editable_grid": 0,
  "engine": "InnoDB",
  "fields": [
@@ -2126,7 +2126,7 @@
  "issingle": 0,
  "istable": 0,
  "max_attachments": 0,
- "modified": "2018-12-13 01:46:39.383430",
+ "modified": "2018-12-13 15:33:11.592313",
  "modified_by": "Administrator",
  "module": "School Plus",
  "name": "Student Transfer Certificate",
