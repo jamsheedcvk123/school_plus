@@ -4,6 +4,15 @@ from frappe import _
 def get_data():
 	return [
 		{
+			"label": _("Tools"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Add Admission Number Tool"
+				}
+			]
+		},
+		{
 			"label": _("Exit"),
 			"items": [
 				{
