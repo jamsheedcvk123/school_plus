@@ -36,8 +36,8 @@ var get_student_list_from_entrolment = function(frm) {
 			callback: function(r) {
 				frm.set_value("student_admission_number_list", []);
 				if(r.message && r.message.length > 0){
-					var item = frappe.model.add_child(frm.doc, 'Student Admission Number List', 'student_admission_number_list');
 					r.message.forEach(function(data){
+						var item = frappe.model.add_child(frm.doc, 'Student Admission Number List', 'student_admission_number_list');
 						frappe.model.set_value(item.doctype, item.name, 'student', data.student);
 						frappe.model.set_value(item.doctype, item.name, 'student_name', data.student_name);
 					})
