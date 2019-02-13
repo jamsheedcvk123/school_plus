@@ -20,5 +20,5 @@ def get_student_list(program, academic_year):
 		from
 			`tabProgram Enrollment`
 		where
-			program='{0}' and academic_year='{1}'
+			docstatus=1 and program='{0}' and academic_year='{1}'
 	""".format(program, academic_year), as_dict=True)
